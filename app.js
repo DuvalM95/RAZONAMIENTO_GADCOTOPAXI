@@ -17,47 +17,61 @@ function mostrarSeccion(idSeccion) {
     }
 }// --- LÓGICA DE LOS JUEGOS ---
 
-// --- LÓGICA DE LOS JUEGOS ---
 
 // Juego 1: Sistema de Ecuaciones Visual
 function verificarJuego1(respuestaUsuario) {
     const mensaje = document.getElementById('resultado-juego-1');
-    const respuestaCorrecta = 7;
+    const respuestaCorrecta = 8;
 
     if (respuestaUsuario === respuestaCorrecta) {
-        mensaje.innerHTML = "¡Correcto! 🎉 Si ✏️ + ✏️ = 10, entonces ✏️ = 5. Luego, 2 x 5 = 10. Para llegar a 17, el crayón debe valer 7.";
-        mensaje.style.color = "#16a085"; 
+        // Respuesta correcta
+        mensaje.innerHTML = "¡Impecable! 🎉 📏=9. Luego, 9 - ✏️² = 5 significa que ✏️=2. Finalmente, (2 x 9) - 🖍️ = 10, por lo tanto el crayón vale 8.";
+        mensaje.style.color = "#16a085"; // Verde
     } else {
-        mensaje.innerHTML = "Incorrecto. ❌ Piénsalo bien: Primero descubre cuánto vale el lápiz y recuerda la prioridad de multiplicación.";
-        mensaje.style.color = "#e74c3c"; 
+        // Respuesta incorrecta
+        mensaje.innerHTML = "Incorrecto. ❌ Piénsalo por pasos: Primero halla la 📏. Luego, fíjate en la segunda ecuación: ¿qué número multiplicado por sí mismo (✏️ x ✏️) te ayuda a llegar a 5?";
+        mensaje.style.color = "#e74c3c"; // Rojo
     }
 }
 
-// Juego 2: Comparación con Potencias
+// Juego 2: Análisis Avanzado de Potencias y Raíces
 function verificarJuego2(respuestaUsuario) {
     const mensaje = document.getElementById('resultado-juego-2');
 
-    // La respuesta correcta es que A (3^3 = 27) es mayor que B (5x5 = 25) por 2.
-    if (respuestaUsuario === 'A_2') {
-        mensaje.innerHTML = "¡Excelente! 🎉 A (3³ = 27) es mayor que B (25) exactamente por 2.";
-        mensaje.style.color = "#2ecc71"; 
+    // Lado A: 2^5 - √64 x 3 = 32 - (8 x 3) = 32 - 24 = 8
+    // Lado B: (3^2 + 4^2) ÷ 5 = (9 + 16) ÷ 5 = 25 ÷ 5 = 5
+    // La respuesta correcta es que A (8) es mayor que B (5) por 3.
+    if (respuestaUsuario === 'A_3') {
+        mensaje.innerHTML = "¡Excelente! 🎉 A da como resultado 8 y B es 5. Por lo tanto, A es mayor exactamente por 3. ¡Gran dominio de la jerarquía matemática!";
+        mensaje.style.color = "#2ecc71"; // Verde
+    } else if (respuestaUsuario === 'IGUALES') {
+        mensaje.innerHTML = "Incorrecto. ❌ Fíjate bien en los detalles. No te dejes llevar solo por los números grandes.";
+        mensaje.style.color = "#e74c3c"; // Rojo
     } else {
-        mensaje.innerHTML = "Piénsalo un poco más. ❌ Recuerda que 3³ es 3 x 3 x 3. ¿Cuánto da eso?";
-        mensaje.style.color = "#e74c3c"; 
+        mensaje.innerHTML = "Piénsalo un poco más. ❌ Recuerda: resuelve primero las potencias y raíces. En B, resuelve el paréntesis primero (3² + 4² = ?).";
+        mensaje.style.color = "#e74c3c"; // Rojo
     }
 }
 
 // Juego 3: Suma Visual con Jerarquía de Operaciones
+// Juego 3: Jerarquía Suprema (Operaciones combinadas)
 function verificarJuego3(respuestaUsuario) {
     const mensaje = document.getElementById('resultado-juego-3');
 
-    // 3 tijeras * 2 tijeras - 1 tijera = 3 * 2 - 1 = 5
-    if (respuestaUsuario === 5) {
-        mensaje.innerHTML = "¡Correcto! 🎉 3 x 2 = 6, y 6 - 1 = 5. ¡Gran dominio de los signos!";
-        mensaje.style.color = "#2ecc71"; 
+    // Ecuación: 10 - 2 x 3 + 12 ÷ 4
+    // Correcto: 10 - 6 + 3 = 7
+    if (respuestaUsuario === 7) {
+        mensaje.innerHTML = "¡Correcto! 🎉 Primero multiplicamos (2x3=6) y dividimos (12÷4=3). Luego resolvemos de izquierda a derecha: 10 - 6 + 3 = 7.";
+        mensaje.style.color = "#2ecc71"; // Verde
+    } else if (respuestaUsuario === 9) {
+        mensaje.innerHTML = "Incorrecto. ❌ Caíste en la trampa de leer de izquierda a derecha. ¡Recuerda la jerarquía! Las multiplicaciones y divisiones van primero.";
+        mensaje.style.color = "#e74c3c"; // Rojo
+    } else if (respuestaUsuario === 1) {
+        mensaje.innerHTML = "Casi... ❌ Recuerda que la suma y la resta tienen el mismo nivel y se resuelven de izquierda a derecha. No sumes (-6 + 3) antes de restar.";
+        mensaje.style.color = "#e74c3c"; // Rojo
     } else {
-        mensaje.innerHTML = "Incorrecto. ❌ Fíjate bien en los signos: primero va la multiplicación, luego la resta.";
-        mensaje.style.color = "#e74c3c"; 
+        mensaje.innerHTML = "Incorrecto. ❌ Revisa tus cálculos. Recuerda: 1º Multiplicación/División, 2º Suma/Resta (de izquierda a derecha).";
+        mensaje.style.color = "#e74c3c"; // Rojo
     }
 }
 
@@ -109,106 +123,5 @@ function verificarJuego6() {
         mensaje.innerHTML = "Alguna respuesta no es correcta. ❌ Revisa tus cálculos e inténtalo de nuevo.";
         mensaje.style.color = "#e74c3c"; 
     }
+    
 }
-let preguntas = [];
-
-// Cargar JSON
-fetch("preguntas.json")
-  .then(res => res.json())
-  .then(data => {
-    preguntas = data.preguntas;
-    mostrarPreguntas();
-  });
-
-// Mostrar preguntas en HTML
-function mostrarPreguntas() {
-    const form = document.getElementById("quizForm");
-  
-    preguntas.forEach((p, index) => {
-      let html = `<div id="bloque${index}">
-          <p><strong>${index + 1}. ${p.pregunta}</strong></p>`;
-  
-      p.opciones.forEach((op, i) => {
-        html += `
-          <label>
-            <input type="radio" name="pregunta${index}" value="${i}">
-            ${op}
-          </label><br>`;
-      });
-  
-      // 👇 espacio para feedback
-      html += `<div id="feedback${index}"></div>`;
-  
-      html += `</div><hr>`;
-      form.innerHTML += html;
-    });
-  }
-
-// Calificar
-function calificar() {
-    let puntaje = 0;
-  
-    preguntas.forEach((p, index) => {
-      const opciones = document.querySelectorAll(`input[name="pregunta${index}"]`);
-      const bloque = document.getElementById(`bloque${index}`);
-      const feedback = document.getElementById(`feedback${index}`);
-  
-      let correctaSeleccionada = false;
-      let respuestaUsuario = null;
-  
-      opciones.forEach((op) => {
-        const label = op.parentElement;
-  
-        label.classList.remove("incorrecta");
-  
-        if (op.checked) {
-          respuestaUsuario = parseInt(op.value);
-  
-          // si eligió mal → rojo
-          if (respuestaUsuario !== p.correcta) {
-            label.classList.add("incorrecta");
-          }
-  
-          if (respuestaUsuario === p.correcta) {
-            correctaSeleccionada = true;
-            puntaje++;
-          }
-        }
-  
-        op.disabled = true;
-      });
-  
-      // ❌ si falla
-      if (!correctaSeleccionada) {
-        bloque.classList.add("pregunta-incorrecta");
-  
-        feedback.innerHTML = `
-          Respuesta correcta: <strong>${p.opciones[p.correcta]}</strong>
-        `;
-        feedback.classList.add("feedback");
-      }
-    });
-  
-    document.getElementById("resultado").innerText =
-      `Tu calificación es: ${puntaje} / ${preguntas.length}`;
-    document.getElementById("botonReintentar").style.display = "inline-block";
-    document.getElementById("botonEnviar").disabled = true;
-  }
-  function reiniciarTest() {
-    const form = document.getElementById("quizForm");
-  
-    // limpiar todo el formulario
-    form.innerHTML = "";
-  
-    // limpiar resultado
-    document.getElementById("resultado").innerText = "";
-  
-    // ocultar botón reintentar
-    document.getElementById("botonReintentar").style.display = "none";
-  
-    // activar botón enviar
-    document.getElementById("botonEnviar").disabled = false;
-  
-    // volver a generar preguntas
-    mostrarPreguntas();
-  }
