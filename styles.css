@@ -711,3 +711,63 @@ select {
 .lista-webs a strong {
     color: #246c94;
 }
+
+#botonEnviar {
+    background-color: #69bedd;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+/* Hover */
+#botonEnviar:hover {
+    background-color: #4aa3c5; /* más oscuro */
+    transform: translateY(-2px); /* levanta el botón */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Cuando haces click */
+#botonEnviar:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.pregunta-incorrecta {
+    background-color: #f8d7da;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.incorrecta {
+    background-color: #f7c5c5;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.feedback {
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #d4edda;
+    color: #155724;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+#botonReintentar {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+
+#botonReintentar:hover {
+    background-color: #5a6268;
+}

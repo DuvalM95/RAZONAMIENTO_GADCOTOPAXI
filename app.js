@@ -110,3 +110,105 @@ function verificarJuego6() {
         mensaje.style.color = "#e74c3c"; // Rojo
     }
 }
+let preguntas = [];
+
+// Cargar JSON
+fetch("preguntas.json")
+  .then(res => res.json())
+  .then(data => {
+    preguntas = data.preguntas;
+    mostrarPreguntas();
+  });
+
+// Mostrar preguntas en HTML
+function mostrarPreguntas() {
+    const form = document.getElementById("quizForm");
+  
+    preguntas.forEach((p, index) => {
+      let html = `<div id="bloque${index}">
+          <p><strong>${index + 1}. ${p.pregunta}</strong></p>`;
+  
+      p.opciones.forEach((op, i) => {
+        html += `
+          <label>
+            <input type="radio" name="pregunta${index}" value="${i}">
+            ${op}
+          </label><br>`;
+      });
+  
+      // 👇 espacio para feedback
+      html += `<div id="feedback${index}"></div>`;
+  
+      html += `</div><hr>`;
+      form.innerHTML += html;
+    });
+  }
+
+// Calificar
+function calificar() {
+    let puntaje = 0;
+  
+    preguntas.forEach((p, index) => {
+      const opciones = document.querySelectorAll(`input[name="pregunta${index}"]`);
+      const bloque = document.getElementById(`bloque${index}`);
+      const feedback = document.getElementById(`feedback${index}`);
+  
+      let correctaSeleccionada = false;
+      let respuestaUsuario = null;
+  
+      opciones.forEach((op) => {
+        const label = op.parentElement;
+  
+        label.classList.remove("incorrecta");
+  
+        if (op.checked) {
+          respuestaUsuario = parseInt(op.value);
+  
+          // si eligió mal → rojo
+          if (respuestaUsuario !== p.correcta) {
+            label.classList.add("incorrecta");
+          }
+  
+          if (respuestaUsuario === p.correcta) {
+            correctaSeleccionada = true;
+            puntaje++;
+          }
+        }
+  
+        op.disabled = true;
+      });
+  
+      // ❌ si falla
+      if (!correctaSeleccionada) {
+        bloque.classList.add("pregunta-incorrecta");
+  
+        feedback.innerHTML = `
+          Respuesta correcta: <strong>${p.opciones[p.correcta]}</strong>
+        `;
+        feedback.classList.add("feedback");
+      }
+    });
+  
+    document.getElementById("resultado").innerText =
+      `Tu calificación es: ${puntaje} / ${preguntas.length}`;
+    document.getElementById("botonReintentar").style.display = "inline-block";
+    document.getElementById("botonEnviar").disabled = true;
+  }
+  function reiniciarTest() {
+    const form = document.getElementById("quizForm");
+  
+    // limpiar todo el formulario
+    form.innerHTML = "";
+  
+    // limpiar resultado
+    document.getElementById("resultado").innerText = "";
+  
+    // ocultar botón reintentar
+    document.getElementById("botonReintentar").style.display = "none";
+  
+    // activar botón enviar
+    document.getElementById("botonEnviar").disabled = false;
+  
+    // volver a generar preguntas
+    mostrarPreguntas();
+  }

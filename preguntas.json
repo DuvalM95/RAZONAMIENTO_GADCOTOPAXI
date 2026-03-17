@@ -1,0 +1,94 @@
+{
+    "preguntas": [
+      {
+        "id": 1,
+        "pregunta": "Si 3x + 5 = 20, ¿cuál es el valor de x?",
+        "opciones": ["3", "5", "7", "10"],
+        "correcta": 1
+      },
+      {
+        "id": 2,
+        "pregunta": "Si una secuencia es 2, 4, 8, 16, ¿cuál es el siguiente número?",
+        "opciones": ["18", "24", "30", "32"],
+        "correcta": 3
+      },
+      {
+        "id": 3,
+        "pregunta": "Si un rectángulo tiene largo 10 y ancho 5, ¿cuál es su área?",
+        "opciones": ["15", "30", "50", "60"],
+        "correcta": 2
+      },
+      {
+        "id": 4,
+        "pregunta": "Si un número se multiplica por 4 y luego se le resta 6, obteniendo 18, ¿cuál es el número?",
+        "opciones": ["4", "5", "6", "7"],
+        "correcta": 2
+      },
+      {
+        "id": 5,
+        "pregunta": "¿Cuál es el resultado de 12 ÷ 3 + 4?",
+        "opciones": ["8", "6", "10", "12"],
+        "correcta": 0
+      },
+      {
+        "id": 6,
+        "pregunta": "Si un número aumenta en 5 y luego se multiplica por 2 y da 20, ¿cuál es el número inicial?",
+        "opciones": ["5", "10", "3", "15"],
+        "correcta": 0
+      },
+      {
+        "id": 7,
+        "pregunta": "¿Cuál número sigue en la serie: 5, 10, 20, 40?",
+        "opciones": ["45", "60", "80", "100"],
+        "correcta": 2
+      },
+      {
+        "id": 8,
+        "pregunta": "Si 7 + x = 15, ¿cuánto vale x?",
+        "opciones": ["6", "7", "8", "9"],
+        "correcta": 2
+      },
+      {
+        "id": 9,
+        "pregunta": "Si la suma de tres números consecutivos es 72, ¿cuál es el número menor?",
+        "opciones": ["22", "23", "24", "25"],
+        "correcta": 1
+      },
+      {
+        "id": 10,
+        "pregunta": "Si un producto cuesta $50 y tiene 20% de descuento, ¿cuánto se paga?",
+        "opciones": ["30", "35", "40", "45"],
+        "correcta": 2
+      },
+      {
+        "id": 11,
+        "pregunta": "Si una hora tiene 60 minutos, ¿cuántos minutos hay en 3 horas?",
+        "opciones": ["120", "150", "180", "200"],
+        "correcta": 2
+      },
+      {
+        "id": 12,
+        "pregunta": "¿Cuál es el resultado de 9 × 6?",
+        "opciones": ["45", "54", "56", "60"],
+        "correcta": 1
+      },
+      {
+        "id": 13,
+        "pregunta": "Si un tren viaja 60 km en 1 hora, ¿cuánto recorrerá en 2 horas?",
+        "opciones": ["90", "100", "120", "150"],
+        "correcta": 2
+      },
+      {
+        "id": 14,
+        "pregunta": "Si la mitad de un número es 25, ¿cuál es el número?",
+        "opciones": ["40", "45", "50", "55"],
+        "correcta": 2
+      },
+      {
+        "id": 15,
+        "pregunta": "¿Cuál es el resultado de 100 − 45?",
+        "opciones": ["45", "50", "55", "60"],
+        "correcta": 2
+      }
+    ]
+  }

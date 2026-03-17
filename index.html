@@ -519,7 +519,16 @@
 
         <section id="tests" class="seccion">
             <h2>Evalúa tu Progreso</h2>
-            <p>Próximamente: Cuestionarios para medir el razonamiento.</p>
+        
+            <form id="quizForm"></form>
+        
+            <button id="botonEnviar"onclick="calificar()">Enviar</button>
+
+            <button id="botonReintentar" onclick="reiniciarTest()" style="display:none;">
+                Reintentar
+            </button>
+        
+            <h3 id="resultado"></h3>
         </section>
 
     </main>
