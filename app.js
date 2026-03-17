@@ -17,19 +17,20 @@ function mostrarSeccion(idSeccion) {
     }
 }// --- LÓGICA DE LOS JUEGOS ---
 
-// --- LÓGICA DE LOS JUEGOS ---
 
 // Juego 1: Sistema de Ecuaciones Visual
 function verificarJuego1(respuestaUsuario) {
     const mensaje = document.getElementById('resultado-juego-1');
-    const respuestaCorrecta = 7;
+    const respuestaCorrecta = 8;
 
     if (respuestaUsuario === respuestaCorrecta) {
-        mensaje.innerHTML = "¡Correcto! 🎉 Si ✏️ + ✏️ = 10, entonces ✏️ = 5. Luego, 2 x 5 = 10. Para llegar a 17, el crayón debe valer 7.";
-        mensaje.style.color = "#16a085"; 
+        // Respuesta correcta
+        mensaje.innerHTML = "¡Impecable! 🎉 📏=9. Luego, 9 - ✏️² = 5 significa que ✏️=2. Finalmente, (2 x 9) - 🖍️ = 10, por lo tanto el crayón vale 8.";
+        mensaje.style.color = "#16a085"; // Verde
     } else {
-        mensaje.innerHTML = "Incorrecto. ❌ Piénsalo bien: Primero descubre cuánto vale el lápiz y recuerda la prioridad de multiplicación.";
-        mensaje.style.color = "#e74c3c"; 
+        // Respuesta incorrecta
+        mensaje.innerHTML = "Incorrecto. ❌ Piénsalo por pasos: Primero halla la 📏. Luego, fíjate en la segunda ecuación: ¿qué número multiplicado por sí mismo (✏️ x ✏️) te ayuda a llegar a 5?";
+        mensaje.style.color = "#e74c3c"; // Rojo
     }
 }
 
@@ -48,16 +49,24 @@ function verificarJuego2(respuestaUsuario) {
 }
 
 // Juego 3: Suma Visual con Jerarquía de Operaciones
+// Juego 3: Jerarquía Suprema (Operaciones combinadas)
 function verificarJuego3(respuestaUsuario) {
     const mensaje = document.getElementById('resultado-juego-3');
 
-    // 3 tijeras * 2 tijeras - 1 tijera = 3 * 2 - 1 = 5
-    if (respuestaUsuario === 5) {
-        mensaje.innerHTML = "¡Correcto! 🎉 3 x 2 = 6, y 6 - 1 = 5. ¡Gran dominio de los signos!";
-        mensaje.style.color = "#2ecc71"; 
+    // Ecuación: 10 - 2 x 3 + 12 ÷ 4
+    // Correcto: 10 - 6 + 3 = 7
+    if (respuestaUsuario === 7) {
+        mensaje.innerHTML = "¡Correcto! 🎉 Primero multiplicamos (2x3=6) y dividimos (12÷4=3). Luego resolvemos de izquierda a derecha: 10 - 6 + 3 = 7.";
+        mensaje.style.color = "#2ecc71"; // Verde
+    } else if (respuestaUsuario === 9) {
+        mensaje.innerHTML = "Incorrecto. ❌ Caíste en la trampa de leer de izquierda a derecha. ¡Recuerda la jerarquía! Las multiplicaciones y divisiones van primero.";
+        mensaje.style.color = "#e74c3c"; // Rojo
+    } else if (respuestaUsuario === 1) {
+        mensaje.innerHTML = "Casi... ❌ Recuerda que la suma y la resta tienen el mismo nivel y se resuelven de izquierda a derecha. No sumes (-6 + 3) antes de restar.";
+        mensaje.style.color = "#e74c3c"; // Rojo
     } else {
-        mensaje.innerHTML = "Incorrecto. ❌ Fíjate bien en los signos: primero va la multiplicación, luego la resta.";
-        mensaje.style.color = "#e74c3c"; 
+        mensaje.innerHTML = "Incorrecto. ❌ Revisa tus cálculos. Recuerda: 1º Multiplicación/División, 2º Suma/Resta (de izquierda a derecha).";
+        mensaje.style.color = "#e74c3c"; // Rojo
     }
 }
 

@@ -152,12 +152,12 @@
                     </div>
                 </div>
                 <div class="card-articulo" onclick="mostrarSeccion('juego-3')">
-                    <div class="portada-juego" style="background-color: #2c3e50;">
-                        ✂️ x ✂️ - ✂️
+                    <div class="portada-juego" style="background-color: #2c3e50; font-size: 35px; letter-spacing: 5px;">
+                        + - x ÷
                     </div>
                     <div class="card-contenido">
-                        <h3>Jerarquía de Operaciones</h3>
-                        <p>Presta mucha atención a los signos matemáticos y encuentra el resultado final.</p>
+                        <h3>Jerarquía Suprema</h3>
+                        <p>Desafía tu mente resolviendo una operación combinada engañosa. ¡Cuidado con la trampa!</p>
                         <span class="btn-leer">Jugar ahora ➔</span>
                     </div>
                 </div>
@@ -210,16 +210,18 @@
             <div class="contenedor-juego">
                 <h2>Juego 1: Sistema de Ecuaciones Visual</h2>
                 <div class="tablero-juego">
-                    <p class="instruccion-juego">Si la 📏 vale <strong>2</strong>, deduce el valor del lápiz y luego resuelve:</p>
+                    <p class="instruccion-juego">Resuelve el sistema paso a paso para encontrar el valor final:</p>
+
                     <div class="problema-visual">
-                        <span style="font-size: 24px;">✏️ + ✏️ = 10</span><br><br>
-                        <span>📏 x ✏️ + 🖍️ = 17</span>
+                        <span style="font-size: 24px;">📏 + 📏 + 📏 = 27</span><br><br>
+                        <span style="font-size: 24px;">📏 - (✏️ x ✏️) = 5</span><br><br>
+                        <span style="font-size: 24px;">(✏️ x 📏) - 🖍️ = 10</span>
                     </div>
                     <p class="pregunta-juego">¿Cuánto vale el crayon verde (🖍️)?</p>
                     <div class="opciones-juego">
-                        <button onclick="verificarJuego1(10)">10</button>
-                        <button onclick="verificarJuego1(15)">15</button>
-                        <button onclick="verificarJuego1(7)">7</button>
+                        <button onclick="verificarJuego1(8)">8</button>
+                        <button onclick="verificarJuego1(12)">12</button>
+                        <button onclick="verificarJuego1(14)">14</button>
                     </div>
                     <p id="resultado-juego-1" class="mensaje-resultado"></p>
                 </div>
@@ -255,25 +257,23 @@
         <section id="juego-3" class="seccion">
             <button class="btn-volver" onclick="mostrarSeccion('juegos')">⬅ Volver a Juegos</button>
             <div class="contenedor-juego">
-                <h2>Juego 3: Jerarquía de Operaciones</h2>
-                <div class="tablero-juego-3">
-                    <p class="pregunta-juego" style="color: white; font-size: 26px;">¿Cuál es el resultado final?</p>
-                    <div class="suma-objetos">
-                        <span class="grupo-emojis">✂️✂️<br>✂️</span>
-                        <span class="signo-matematico">x</span>
-                        <span class="grupo-emojis">✂️<br>✂️</span>
-                        <span class="signo-matematico">-</span>
-                        <span class="grupo-emojis">✂️</span>
-                        <span class="signo-matematico">=</span>
-                        <span class="grupo-emojis" style="font-size: 50px;">❓</span>
+                <h2>Juego 3: Jerarquía Suprema</h2>
+                <div class="tablero-juego-3" style="background-color: #2c3e50; padding: 30px; border-radius: 15px; text-align: center;">
+                    
+                    <p class="pregunta-juego" style="color: white; font-size: 20px; margin-bottom: 20px;">No te dejes engañar por el orden visual. ¿Cuál es el resultado real?</p>
+
+                    <div class="suma-objetos" style="background-color: white; padding: 20px; border-radius: 10px; display: inline-block; margin-bottom: 25px;">
+                        <span style="font-size: 35px; font-weight: bold; color: #333; letter-spacing: 2px;">10 - 2 x 3 + 12 ÷ 4 = ❓</span>
                     </div>
+
                     <div class="opciones-cuadradas">
-                        <button onclick="verificarJuego3(3)">3</button>
-                        <button onclick="verificarJuego3(5)">5</button>
                         <button onclick="verificarJuego3(9)">9</button>
-                        <button onclick="verificarJuego3(6)">6</button>
+                        <button onclick="verificarJuego3(1)">1</button>
+                        <button onclick="verificarJuego3(7)">7</button>
+                        <button onclick="verificarJuego3(15)">15</button>
                     </div>
-                    <p id="resultado-juego-3" class="mensaje-resultado"></p>
+
+                    <p id="resultado-juego-3" class="mensaje-resultado" style="margin-top: 20px;"></p>
                 </div>
             </div>
         </section>
