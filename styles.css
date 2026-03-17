@@ -1,0 +1,713 @@
+/* Estilos generales */
+body {
+    /* *** CAMBIO: Ahora usamos Montserrat *** */
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+p {
+    text-align: justify;
+    hyphens: auto;
+    /* Esto ayuda a separar las palabras largas con guiones al final de la línea, para que no queden huecos feos */
+}
+
+/* Encabezado: Logo y Texto a la izquierda, menú a la derecha */
+header {
+    background-color: #246c94;
+    /* *** CAMBIO: Color Principal *** */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor del logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Espacio entre imagen y texto */
+}
+
+/* Estilos de la imagen del logo */
+.logo-img {
+    height: 50px;
+    /* Tamaño del logo en el header */
+    width: auto;
+    border-radius: 50%;
+    /* Opcional, si quieres el logo redondo */
+    object-fit: contain;
+    background-color: white;
+    /* Da un fondo blanco si la imagen no tiene uno */
+    padding: 2px;
+}
+
+header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+nav button {
+    background-color: #69bedd;
+    /* *** CAMBIO: Color Secundario de acento *** */
+    color: white;
+    border: 1px solid transparent;
+    padding: 10px 15px;
+    margin-left: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+nav button:hover {
+    background-color: #1e4d75;
+    /* *** CAMBIO: Versión más oscura del principal *** */
+    border: 1px solid #ecf0f1;
+}
+
+/* Contenedor principal */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Control de las secciones (JavaScript las ocultará/mostrará) */
+.seccion {
+    display: none;
+    /* Ocultas por defecto */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.seccion.activa {
+    display: block;
+    /* Solo se muestra la que tiene la clase 'activa' */
+}
+
+/* Animación suave al cambiar de sección */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos de los artículos */
+article {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+article h3 {
+    color: #246c94;
+    /* *** CAMBIO: Color Principal *** */
+}
+
+article h4 {
+    color: #69bedd;
+    /* *** CAMBIO: Color Secundario *** */
+    margin-bottom: 5px;
+}
+
+ul,
+ol {
+    margin-top: 5px;
+}
+
+/* Referencia y enlace */
+.referencia {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #e8f4f8;
+    border-left: 4px solid #69bedd;
+    /* *** CAMBIO: Borde del color Secundario *** */
+}
+
+.referencia a {
+    color: #246c94;
+    /* *** CAMBIO: Enlace del color Principal *** */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.banner-container {
+    width: 100%;
+    margin-bottom: 25px;
+    /* Espacio entre el banner y el título principal */
+    border-radius: 8px;
+    /* Bordes redondeados que hacen juego con la tarjeta principal */
+    overflow: hidden;
+    /* Asegura que la imagen respete los bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil para darle profundidad */
+}
+
+.banner-img {
+    width: 100%;
+    /* Ocupa todo el ancho del contenedor */
+    height: auto;
+    display: block;
+    /* Evita márgenes invisibles debajo de la imagen */
+    max-height: 300px;
+    /* Altura máxima para que no empuje el texto demasiado abajo */
+    object-fit: cover;
+    /* Recorta la imagen de forma elegante si es necesario, sin deformarla */
+}
+
+nav button {
+    font-family: 'Montserrat', sans-serif;
+    /* *** NUEVO: Forzamos la fuente en los botones *** */
+    background-color: #69bedd;
+    color: white;
+    border: 1px solid transparent;
+    padding: 10px 15px;
+    margin-left: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+/* --- Estilos para las Tarjetas de Artículos (Cards) --- */
+.grid-articulos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card-articulo {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    /* Evita que la imagen se salga de los bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+/* Efecto al pasar el mouse sobre la tarjeta */
+.card-articulo:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(36, 108, 148, 0.2);
+    /* Sombra con tu color principal #246c94 */
+    border-color: #69bedd;
+    /* Borde con tu color secundario #69bedd */
+}
+
+.card-articulo img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card-contenido {
+    padding: 20px;
+}
+
+.card-contenido h3 {
+    margin-top: 0;
+    color: #246c94;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-contenido p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.btn-leer {
+    display: inline-block;
+    color: #69bedd;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Botón para regresar al catálogo desde un artículo individual */
+.btn-volver {
+    background-color: #246c94;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.btn-volver:hover {
+    background-color: #1e4d75;
+}
+
+/* --- Estilos para la imagen dentro del artículo individual --- */
+.img-articulo-individual {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    /* Evita que la imagen sea excesivamente alta */
+    object-fit: cover;
+    /* Recorta suavemente para encajar sin deformar */
+    border-radius: 8px;
+    /* Bordes redondeados elegantes */
+    margin-bottom: 25px;
+    /* Espacio antes de que empiece el título */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Estilos para la Sección de Videos --- */
+.grid-videos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Cuadrícula adaptable */
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.card-video {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-video:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(36, 108, 148, 0.2);
+    border-color: #69bedd;
+}
+
+/* Contenedor responsivo para el iframe de YouTube */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    /* Proporción 16:9 de YouTube */
+    height: 0;
+    background-color: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* --- Estilos para los Juegos --- */
+
+/* Portada generada con CSS para las tarjetas de juego */
+.portada-juego {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Contenedor principal del juego interactivo */
+.contenedor-juego {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border: 2px solid #69bedd;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tablero-juego {
+    background-color: #f8fbfa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.instruccion-juego {
+    font-size: 20px;
+    color: #333;
+}
+
+/* El cuadro central con la ecuación */
+.problema-visual {
+    background-color: #246c94;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.pregunta-juego {
+    font-size: 22px;
+    font-weight: bold;
+    color: #246c94;
+    margin-bottom: 20px;
+}
+
+/* Botones de opciones (A, B, C) */
+.opciones-juego {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.opciones-juego button {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 15px 30px;
+    background-color: white;
+    color: #246c94;
+    border: 3px solid #69bedd;
+    border-radius: 8px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.opciones-juego button:hover {
+    background-color: #69bedd;
+    color: white;
+    transform: scale(1.05);
+    /* Efecto de crecimiento al pasar el mouse */
+}
+
+/* Mensaje de respuesta (Correcto/Incorrecto) */
+.mensaje-resultado {
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    min-height: 27px;
+    /* Evita que la página salte cuando aparece el texto */
+}
+
+/* --- Estilos específicos para el Juego 3 --- */
+.tablero-juego-3 {
+    background-color: #000;
+    padding: 40px 20px;
+    border-radius: 15px;
+    border: 8px solid #2ecc71;
+    /* Borde verde exterior simulando el diseño */
+    outline: 4px solid #e91e63;
+    /* Borde rosado interior */
+    outline-offset: -12px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.suma-objetos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 40px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.grupo-emojis {
+    font-size: 35px;
+    line-height: 1.2;
+}
+
+.signo-matematico {
+    font-size: 50px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Opciones en cuadros como en la imagen */
+.opciones-cuadradas {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.opciones-cuadradas button {
+    font-size: 28px;
+    font-weight: bold;
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    color: #f1c40f;
+    /* Número amarillo */
+    border: 3px solid #fff;
+    /* Borde blanco */
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.opciones-cuadradas button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* --- Estilos específicos para el Juego 4 (Abrecajas) --- */
+.grid-abrecajas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Crea 3 columnas del mismo tamaño */
+    gap: 15px;
+    max-width: 260px;
+    /* Mantiene la cuadrícula compacta en el centro */
+    margin: 30px auto;
+}
+
+.caja-numero {
+    background-color: #2c3e50;
+    /* Azul oscuro */
+    color: white;
+    border: 4px solid #5dade2;
+    /* Borde celeste como en la imagen */
+    border-radius: 6px;
+    font-size: 32px;
+    font-weight: bold;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* Hace que los botones sean cuadrados perfectos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.caja-numero:hover {
+    background-color: #5dade2;
+    /* Se vuelve celeste al pasar el mouse */
+    color: #2c3e50;
+    transform: scale(1.05);
+}
+
+/* --- Estilos específicos para el Juego 5 (Problema de Cálculo) --- */
+.tablero-juego-5 {
+    background-color: #111;
+    /* Casi negro */
+    color: white;
+    padding: 40px 20px;
+    border-radius: 15px;
+    border: 8px dashed #2ecc71;
+    /* Borde verde punteado estilo concurso */
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.enunciado-problema p {
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.opciones-concurso {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.caja-opcion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.letra-opcion {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.caja-opcion button {
+    background-color: #000;
+    /* Fondo negro para el botón */
+    color: #f1c40f;
+    /* Número en amarillo */
+    border: 3px solid #f1c40f;
+    /* Borde amarillo */
+    font-size: 30px;
+    font-weight: bold;
+    padding: 15px 25px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    border-radius: 5px;
+}
+
+.caja-opcion button:hover {
+    background-color: #333;
+    /* Gris muy oscuro al pasar el mouse */
+    transform: scale(1.1);
+}
+
+/* --- Estilos específicos para el Juego 6 (Une las Parejas) --- */
+.tablero-juego-6 {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #bdc3c7;
+    margin-top: 20px;
+}
+
+.lista-parejas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.item-pareja {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+/* Cajas de texto coloreadas */
+.enunciado-pareja {
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    flex-grow: 1;
+    /* Ocupa el espacio disponible */
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bg-azul {
+    background-color: #3498db;
+}
+
+.bg-rojo {
+    background-color: #e74c3c;
+}
+
+.bg-naranja {
+    background-color: #e67e22;
+}
+
+/* Selector de respuestas */
+.select-pareja {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+    border: 3px solid #7f8c8d;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 80px;
+    text-align: center;
+}
+
+.btn-verificar-juego6 {
+    background-color: #246c94;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-verificar-juego6:hover {
+    background-color: #1a5276;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 600px) {
+    .item-pareja {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* --- Estilos para la sección de Más Juegos (Enlaces Externos) --- */
+.mas-juegos-container {
+    margin-top: 50px;
+    padding: 25px;
+    background-color: #e8f4f8;
+    /* Tono celeste muy suave */
+    border-radius: 10px;
+    border-left: 6px solid #246c94;
+    /* Borde lateral con tu color principal */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.mas-juegos-container h3 {
+    color: #246c94;
+    margin-top: 0;
+    font-size: 22px;
+}
+
+.lista-webs {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+.lista-webs li {
+    margin-bottom: 15px;
+    font-size: 16px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #d1e5eb;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.lista-webs li:hover {
+    transform: translateX(5px);
+    /* Pequeño movimiento hacia la derecha al pasar el mouse */
+    box-shadow: 0 4px 8px rgba(105, 190, 221, 0.2);
+}
+
+.lista-webs a {
+    color: #2c3e50;
+    text-decoration: none;
+    display: block;
+    /* Hace que toda la caja blanca sea un enlace "cliqueable" */
+}
+
+.lista-webs a strong {
+    color: #246c94;
+}
